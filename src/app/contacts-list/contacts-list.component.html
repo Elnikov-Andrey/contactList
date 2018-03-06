@@ -1,0 +1,22 @@
+<h3 class="p-a-1">Contact list</h3>
+
+<div class="form m-t-1 m-b-1">
+  <input class="form-control" type="text" #name name="name" [(ngModel)]="contact.name" />
+  <input class="form-control" type="text" #surname name="surname" [(ngModel)]="contact.surname" />
+  <button class="btn btn-secondary m-t-1" (click)="addItem(name.value, surname.value)">Add to contact to list</button>
+</div>
+
+<table class="table table-bordered table-striped" style="text-align:center">
+  <thead>
+    <th></th>
+    <th>NAME</th>
+    <th>SURNAME</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of getTodoItems(); let i = index" (click)="details(name.value, surname.value)">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.name | lowercase }}</td>
+      <td>{{ item.surname | uppercase }}</td>
+    </tr>
+  </tbody>
+</table>
